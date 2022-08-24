@@ -24,8 +24,8 @@ SCRAPYDWEB_PORT = int(os.environ['PORT'])
 
 # The default is False, set it to True to enable basic auth for the web UI.
 
-if os.environ.get('ENABLE_AUTH', 'False') == 'True':
-    ENABLE_AUTH = False
+
+ENABLE_AUTH = False
 # In order to enable basic auth, both USERNAME and PASSWORD should be non-empty strings.
 USERNAME = ''
 PASSWORD = ''
@@ -51,11 +51,7 @@ PASSWORD = ''
 #   - or if ScrapydWeb fails to parse the string format passed in,
 #   - it's recommended to pass in a tuple of 5 elements.
 #   - e.g. ('', '', '127.0.0.1', '6800', '') or ('username', 'password', 'localhost', '6801', 'group')
-SCRAPYD_SERVERS = [
-    '127.0.0.1:6800',
-    # 'username:password@localhost:6801#group',
-    ('username', 'password', 'localhost', '6801', 'group'),
-]
+
 SCRAPYD_SERVERS = []
 import re
 for k, v in os.environ.items():
