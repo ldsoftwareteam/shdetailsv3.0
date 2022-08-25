@@ -16,19 +16,22 @@ import os
 # ScrapydWeb server visible externally; Otherwise, set it to '127.0.0.1'.
 # The default is '0.0.0.0'.
 SCRAPYDWEB_BIND = '0.0.0.0'
+
 # Accept connections on the specified port, the default is 5000.
-SCRAPYDWEB_PORT = 5000
+#SCRAPYDWEB_PORT = 5000
 # https://devcenter.heroku.com/articles/runtime-principles#web-servers
 # The port to bind to is assigned by Heroku as the PORT environment variable.
 SCRAPYDWEB_PORT = int(os.environ['PORT'])
 
 # The default is False, set it to True to enable basic auth for the web UI.
 
-
 ENABLE_AUTH = False
+
 # In order to enable basic auth, both USERNAME and PASSWORD should be non-empty strings.
 USERNAME = ''
 PASSWORD = ''
+#USERNAME = os.environ.get('USERNAME', 'admin')
+#PASSWORD = os.environ.get('PASSWORD', 'scrapydweb')
 
 
 
@@ -199,9 +202,9 @@ DAEMONSTATUS_REFRESH_INTERVAL = 10
 # See https://api.slack.com/apps for more info
 
 # See step 1~7 above, e.g. 'xoxp-123-456-789-abcde'
-SLACK_TOKEN = os.environ.get('SLACK_TOKEN', '')
+#SLACK_TOKEN = os.environ.get('SLACK_TOKEN', '')
 # The default channel to use when sending text via slack, e.g. 'general'
-SLACK_CHANNEL = 'general'
+#SLACK_CHANNEL = 'general'
 
 ########## telegram ##########
 # How to create a telegram bot:
@@ -216,31 +219,31 @@ SLACK_CHANNEL = 'general'
 # See https://core.telegram.org/bots#6-botfather for more info
 
 # See step 1~4 above, e.g. '123:abcde'
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', '')
+#TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', '')
 # See step 5~6 above, e.g. 123456789
-TELEGRAM_CHAT_ID = int(os.environ.get('TELEGRAM_CHAT_ID', 0))
+#TELEGRAM_CHAT_ID = int(os.environ.get('TELEGRAM_CHAT_ID', 0))
 
 ########## email ##########
 # The default subject to use when sending text via email.
-EMAIL_SUBJECT = 'Email from #scrapydweb'
+#EMAIL_SUBJECT = 'Email from #scrapydweb'
 
 ########## email sender & recipients ##########
 # Leave this option as '' to default to the EMAIL_SENDER option below; Otherwise, set it up
 # if your email service provider requires an username which is different from the EMAIL_SENDER option below to login.
 # e.g. 'username'
-EMAIL_USERNAME = ''
+#EMAIL_USERNAME = ''
 # As for different email service provider, you might have to get an APP password (like Gmail)
 # or an authorization code (like QQ mail) and set it as the EMAIL_PASSWORD.
 # Check out links below to get more help:
 # https://stackoverflow.com/a/27515833/10517783 How to send an email with Gmail as the provider using Python?
 # https://stackoverflow.com/a/26053352/10517783 Python smtplib proxy support
 # e.g. 'password4gmail'
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
+#EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
 
 # e.g. 'username@gmail.com'
-EMAIL_SENDER = ''
+#EMAIL_SENDER = ''
 # e.g. ['username@gmail.com', ]
-EMAIL_RECIPIENTS = [EMAIL_SENDER]
+#EMAIL_RECIPIENTS = [EMAIL_SENDER]
 
 ########## email smtp settings ##########
 # Check out this link if you are using ECS of Alibaba Cloud and your SMTP server provides TCP port 25 only:
@@ -349,12 +352,12 @@ DEBUG = False
 # The default is False, set it to True to change the logging level from INFO to DEBUG
 # for getting more information about how ScrapydWeb works, especially while debugging.
 VERBOSE = False
-if os.environ.get('VERBOSE', 'False') == 'True':
-    VERBOSE = True
+#if os.environ.get('VERBOSE', 'False') == 'True':
+#    VERBOSE = True
 
 # The default is '', which means saving all program data in the Python directory.
 # e.g. 'C:/Users/username/scrapydweb_data' or '/home/username/scrapydweb_data'
-DATA_PATH = os.environ.get('DATA_PATH', '')
+#DATA_PATH = os.environ.get('DATA_PATH', '')
 
 # The default is '', which means saving data of Jobs and Timer Tasks in DATA_PATH using SQLite.
 # The data could be also saved in MySQL or PostgreSQL backend in order to improve concurrency.
@@ -365,5 +368,5 @@ DATA_PATH = os.environ.get('DATA_PATH', '')
 # 'postgres://username:password@127.0.0.1:5432'
 # 'sqlite:///C:/Users/username'
 # 'sqlite:////home/username'
-DATABASE_URL = os.environ.get('DATABASE_URL', '')
-DATABASE_URL = DATABASE_URL if DATABASE_URL != 'unset' else ''
+#DATABASE_URL = os.environ.get('DATABASE_URL', '')
+#DATABASE_URL = DATABASE_URL if DATABASE_URL != 'unset' else ''

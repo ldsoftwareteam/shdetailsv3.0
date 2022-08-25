@@ -1,3 +1,4 @@
-pip>=19.1
+pip
 scrapydweb>=1.4.0
+Werkzeug==2.0.3
 
