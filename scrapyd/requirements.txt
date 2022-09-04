@@ -56,3 +56,4 @@ scrapyd-client
 logparser
 dnspython
 datetime
+redis
